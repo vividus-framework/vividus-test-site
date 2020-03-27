@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Windows</title>
+</head>
+<body>
+    <div>
+        <a target="_blank" id="timeout" href="/index.html">Timeout</a>
+        <a target="_blank" id="plain" href="/index.html">Plain</a>
+    </div>
+
+    <script>
+        document.getElementById("timeout").addEventListener("click", e => {
+         if(e.isTrusted) {
+             e.preventDefault();
+             setTimeout(() => e.target.click(), 3000);
+         }
+        });
+    </script>
+</body>
+</html>
