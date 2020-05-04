@@ -6,8 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 class TestSiteApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
-
+    @Test
+    fun contextLoads() {
+    }
 }
