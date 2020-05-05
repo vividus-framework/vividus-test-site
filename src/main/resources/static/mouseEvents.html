@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+div {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 10px;
+  float: left;
+  padding: 30px;
+  text-align: center;
+  background-color: lightgray;
+}
+
+p {
+  background-color: white;
+}
+</style>
+</head>
+<body>
+
+<div onmousemove="trackMove()">
+    <p>onmousemove: <br> <span id="move">Mouse move!</span></p>
+</div>
+
+<div onmouseenter="trackEnter()">
+    <p>onmouseenter: <br> <span id="enter">Mouse enter!</span></p>
+</div>
+
+<div onmouseover="trackOver()">
+    <p>onmouseover: <br> <span id="over">Mouse over!</span></p>
+</div>
+
+<script>
+var x = 0;
+var y = 0;
+var z = 0;
+
+function trackMove() {
+  document.getElementById("move").innerHTML = z+=1;
+}
+
+function trackEnter() {
+  document.getElementById("enter").innerHTML = x+=1;
+}
+
+function trackOver() {
+  document.getElementById("over").innerHTML = y+=1;
+}
+</script>
+
+</body>
+</html>
