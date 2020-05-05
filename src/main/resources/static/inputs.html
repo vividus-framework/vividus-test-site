@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Text input</title>
+        <script>
+            function handlePress(element) {
+                document.querySelector("#output").innerText = element.value
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Text input</h1>
+        <label for="text">Input:</label>
+        <input type="text" id="text" name="text" placeholder="Enter text..." onkeyup="handlePress(this)">
+        <br>
+        <br>
+        Output:
+        <div id="output"></div>
+    </body>
+</html>
