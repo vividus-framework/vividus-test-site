@@ -42,6 +42,7 @@ tasks.withType<KotlinCompile> {
 configure<SpotlessExtension> {
     format("resources") {
         target("**/*.md", "**/*.html")
+        targetExclude(".jdk/**")
         indentWithSpaces()
         endWithNewline()
     }
