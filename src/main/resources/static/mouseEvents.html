@@ -22,6 +22,20 @@
                     counts[id] = 0;
                 }
                 document.getElementById(id).innerHTML = counts[id] += 1;
+            }
+
+            function allowDrop(event) {
+                event.preventDefault();
+            }
+
+            function drag(event) {
+                event.dataTransfer.setData("text", event.target.id);
+            }
+
+            function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("text");
+                event.target.appendChild(document.getElementById(data));
             }        
         </script>
         <style>
@@ -37,6 +51,18 @@
 
             p {
                 background-color: white;
+            }
+
+            .container {
+                width: 110px;
+                height: 110px;
+                padding: 10px;
+                border: 1px solid #aaaaaa;
+                display: inline-block;
+            }
+
+            img {
+                display: block;
             }
         </style>
     </head>
@@ -73,6 +99,14 @@
             Double-click me.
         </p>
         <p id="doubleClickMessage"></p>
+        <hr>
+
+        <h3>Events: ondragstart, ondragover, ondrop</h3>
+        <div id="drop-one" class="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="drop-two" class="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img id="drag" src="img/vividus.png" draggable="true" ondragstart="drag(event)" width="100%" height="100%">
+        </div>
         <hr>
     </body>
 </html>
