@@ -8,11 +8,11 @@
             }
 
             function mouseDown() {
-                document.getElementById("target").style.color = "red";
+                document.getElementById("target").style.backgroundColor = "red";
             }
 
             function mouseUp() {
-                document.getElementById("target").style.color = "black";
+                document.getElementById("target").style.backgroundColor = "green";
             }
 
             var counts = {};
@@ -89,9 +89,9 @@
         <hr>
 
         <h3>Events: onmousedown, onmouseup</h3>
-        <p id="target" onmousedown="mouseDown()" onmouseup="mouseUp()">
-            Click and hold the text!
-        </p>
+        <div id="target" class="block" onmousedown="mouseDown()" onmouseup="mouseUp()" style="background-color: white">
+            Click and hold here!
+        </div>
         <hr>
     
         <h3>Event: ondblclick</h3>
