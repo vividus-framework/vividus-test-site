@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delayed scroll</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <a href="#toClick" id="anchor">Forward to click!</a>
+    <div>
+        <div id="alert" onclick="alert('BOOM')" style="height: 6000px; background: black;"></div>
+    </div>
+    <div>
+        <button id="toClick" onclick="document.querySelector('a').style.display = 'none'">Push me!</button>
+    </div>
+</body>
+</html>
