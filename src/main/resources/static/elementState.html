@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Element state</title>
+</head>
+
+<body>
+  <p>
+    <button id="button-hide" onclick="setTimeout(setDisplay, timeout, 'element-to-hide', 'none')">hide</button>
+  </p>
+  <p>
+  <div id="element-to-hide">Element to hide</div>
+  </p>
+  <p>
+    <button id="button-show" onclick="setTimeout(setDisplay, timeout, 'element-to-show', 'block')">show</button>
+  </p>
+  <p>
+  <div id="element-to-show" style="display:none">Element to show</div>
+  </p>
+  <script type="text/javascript">
+    var timeout = 3000;
+
+    function setDisplay(id, display) {
+      document.getElementById(id).style.display = display;
+    }
+
+  </script>
+</body>
+
+</html>
