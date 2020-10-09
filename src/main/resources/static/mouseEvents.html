@@ -36,7 +36,12 @@
                 event.preventDefault();
                 var data = event.dataTransfer.getData("text");
                 event.target.appendChild(document.getElementById(data));
-            }        
+            }
+
+            function resetCounter(id) {
+                counts[id] = 0;
+                document.getElementById(id).innerHTML = 0;
+            }
         </script>
         <style>
             .block {
@@ -86,6 +91,11 @@
         <button onclick="messageHandler('singleClickMessage')">Click me</button>
         <p id="singleClickMessage">
         </p>
+
+        <button onclick="incrementCount('clickResult')" type="button" id="counter">Click me!</button>
+        <button onclick="resetCounter('clickResult')" type="button" id="reset">Reset</button>
+        <p>Clicked:</p>
+        <div id="clickResult">0</div>
         <hr>
 
         <h3>Events: onmousedown, onmouseup</h3>
