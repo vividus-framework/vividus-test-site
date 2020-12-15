@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Links</title>
+    <script>
+        function onLinkClick(event) {
+            event.target.style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <a href="#ElementId">Link to an element</a>
+    <br>
+    <a href="#" title="Link title" onclick="onLinkClick(event)">Link with tooltip</a>
 </body>
 </html>
