@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Delayed loading</title>
+</head>
+<body>
+    <p>Page loading will be delayed for: {{pageTimeout}}{{^pageTimeout}}0{{/pageTimeout}} ms</p>
+    <p>Image loading will be delayed for: {{imageTimeout}}{{^imageTimeout}}0{{/imageTimeout}} ms</p>
+    <img src="/image?timeout={{imageTimeout}}{{^imageTimeout}}{{/imageTimeout}}" alt="VIVIDUS"> </img>
+</body>
+</html>
