@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.5.4"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    id("com.diffplug.spotless") version "5.12.4"
+    id("com.diffplug.spotless") version "5.14.3"
     kotlin("jvm") version "1.5.30"
     kotlin("plugin.spring") version "1.5.30"
 }
