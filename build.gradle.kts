@@ -54,3 +54,7 @@ configure<SpotlessExtension> {
         ktlint()
     }
 }
+
+tasks.getByName<Jar>("jar") {
+    enabled = false
+}
