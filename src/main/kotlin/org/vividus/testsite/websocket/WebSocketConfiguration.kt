@@ -12,10 +12,13 @@ import org.springframework.web.socket.handler.TextWebSocketHandler
 @EnableWebSocket
 class WebSocketConfiguration : WebSocketConfigurer {
     override fun registerWebSocketHandlers(registry: WebSocketHandlerRegistry) {
-        registry.addHandler(object : TextWebSocketHandler() {
-            override fun handleTextMessage(session: WebSocketSession, message: TextMessage) {
-                session.sendMessage(message)
-            }
-        }, "/echo")
+        registry.addHandler(
+            object : TextWebSocketHandler() {
+                override fun handleTextMessage(session: WebSocketSession, message: TextMessage) {
+                    session.sendMessage(message)
+                }
+            },
+            "/echo"
+        )
     }
 }
