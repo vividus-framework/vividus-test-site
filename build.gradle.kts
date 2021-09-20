@@ -6,7 +6,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("com.diffplug.spotless") version "5.15.0"
     kotlin("jvm") version "1.5.31"
-    kotlin("plugin.spring") version "1.5.30"
+    kotlin("plugin.spring") version "1.5.31"
 }
 
 group = "org.vividus"
