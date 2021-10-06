@@ -2,16 +2,14 @@
 <html>
 <head>
     <title>Shadow DOM</title>
-    <script>
-            function addShadowDom(element) {
-                const shadow1 = document.querySelector("#shadow-upper-host").attachShadow({mode: "open"});
-                shadow1.innerHTML = "<div id='shadow-inner-host'></div>";
-                const shadow2 = shadow1.querySelector("#shadow-inner-host").attachShadow({mode: "open"});
-                shadow2.innerHTML = "<div class='target-element'></div>";
-            }
-        </script>
 </head>
 <body>
 <div id="shadow-upper-host"></div>
+<script>
+        const shadow1 = document.querySelector("#shadow-upper-host").attachShadow({mode: "open"});
+        shadow1.innerHTML = "<div id='shadow-inner-host'></div>";
+        const shadow2 = shadow1.querySelector("#shadow-inner-host").attachShadow({mode: "open"});
+        shadow2.innerHTML = "<div class='target-element'></div>";
+</script>
 </body>
 </html>
