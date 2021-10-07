@@ -1,8 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Frames</title>
+        <style>
+            html {
+                height: 100%;
+            }
+            
+            body {
+                height: inherit;
+            }
 
-<frameset>
-    <frame id="exampleCom" src="https://example.com">
-</frameset>
+            #container {
+                height: inherit;
+            }
 
+            #exampleContainer {
+                height:80%;
+                width:100%;
+            }
+
+            #modalContainer {
+                height:20%;
+                width:100%;
+            }
+
+            iframe {
+                height: inherit;
+                width: inherit;
+            }
+
+            #modalWindow {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding-top: 100px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,0.4);
+            }
+
+            .modal-content {
+                background-color: #fefefe;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="exampleContainer">
+                <iframe id="exampleCom" src="https://example.com" frameborder="0"></iframe>
+            </div>
+            <div id="modalContainer">
+                <h2>Modal Frame Example</h2>
+                <button id="modalButton">Open Modal</button>
+                <div id="modalWindow">
+                    <div class="modal-content">
+                        <iframe id="firstFrame" src="./frame1.html" frameborder="1"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.addEventListener('message', (event) => modal.style.display = 'none');
+
+            var modal = document.getElementById('modalWindow');
+
+            const openModalButton = document.getElementById('modalButton');
+            openModalButton.onclick = () => modal.style.display = 'block';
+
+            window.onclick = (event) => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        </script>
+    </body>
 </html>
