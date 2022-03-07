@@ -15,23 +15,11 @@ import java.util.UUID
 @RequestMapping("/api")
 class HttpRequestController {
     private val CACHE_EVICTION_TIME = Duration.ofSeconds(10)
-    private val HALF_CACHE_EVICTION_TIME = CACHE_EVICTION_TIME.toMillis() / 2
 
-    val delayedResponseCache: LoadingCache<UUID, Long> = buildCache { System.currentTimeMillis() }
     val teapotInvocations: LoadingCache<UUID, Long> = buildCache { 0 }
 
     private fun buildCache(loader: (key: UUID) -> Long): LoadingCache<UUID, Long> {
         return Caffeine.newBuilder().expireAfterWrite(CACHE_EVICTION_TIME).build(loader)
-    }
-
-    @GetMapping("/delayed-response")
-    fun delayResponse(@RequestParam clientId: UUID): ResponseEntity<Unit> {
-        val firstRequestTimestamp = delayedResponseCache.get(clientId)
-        if (System.currentTimeMillis() - firstRequestTimestamp!! < HALF_CACHE_EVICTION_TIME) {
-            return ResponseEntity.notFound().build()
-        }
-        delayedResponseCache.invalidate(clientId)
-        return ResponseEntity.ok().build()
     }
 
     @GetMapping("/teapot")
