@@ -3,10 +3,10 @@ name: Vividus Test Site CI
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     branches:
-    - master
+    - main
 
 jobs:
   build:
@@ -31,5 +31,5 @@ jobs:
         ./gradlew build
 
     - name: Deploy to Heroku
-      if: github.ref == 'refs/heads/master'
-      run: git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/vividus-test-site.git master
+      if: github.ref == 'refs/heads/main'
+      run: git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/vividus-test-site.git main
