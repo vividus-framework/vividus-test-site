@@ -42,6 +42,10 @@
                 counts[id] = 0;
                 document.getElementById(id).innerHTML = 0;
             }
+
+            function contextClick() {
+                document.getElementById("context-menu").innerHTML = "Bar";
+            }
         </script>
         <style>
             .block {
@@ -118,6 +122,11 @@
             <img id="drag" src="img/vividus.png" draggable="true" ondragstart="drag(event)" width="100%" height="100%">
         </div>
         <hr>
+
+        <h3>Event: oncontextmenu</h3>
+        <p oncontextmenu="contextClick()" id="context-menu">
+            Foo
+        </p>
 
         <h3>Radio button example:</h3>
         <div>
