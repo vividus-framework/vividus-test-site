@@ -2,7 +2,7 @@ import com.diffplug.gradle.spotless.SpotlessExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.7.1"
+    id("org.springframework.boot") version "2.7.2"
     id("io.spring.dependency-management") version "1.0.12.RELEASE"
     id("com.diffplug.spotless") version "6.8.0"
     kotlin("jvm") version "1.7.10"
