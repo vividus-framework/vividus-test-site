@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://vividus-test-site.herokuapp.com/index.html</loc>
+    </url>
+    <url>
+        <loc>https://vividus-test-site.herokuapp.com/checkboxes.html</loc>
+    </url>
+    <url>
+        <loc>https://vividus-test-site.herokuapp.com/api/redirect</loc>
+    </url>
+    <url>
+        <loc>http://example.com/another-base-url</loc>
+    </url>
+</urlset>
