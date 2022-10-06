@@ -41,6 +41,14 @@ class HttpRequestController {
         return ResponseEntity.ok().build()
     }
 
+    @GetMapping("/redirect")
+    fun redirect(): ResponseEntity<Any> {
+        return ResponseEntity
+            .status(HttpStatus.FOUND)
+            .header("Location", "/index.html")
+            .build()
+    }
+
     @GetMapping("/zip-archive")
     fun getResponseAsZipArchive(): ResponseEntity<ByteArray> {
         try {
