@@ -49,6 +49,11 @@ class HttpRequestController {
             .build()
     }
 
+    @GetMapping("/no-content")
+    fun noContent(): ResponseEntity<Any> {
+        return ResponseEntity.noContent().build()
+    }
+
     @GetMapping("/zip-archive")
     fun getResponseAsZipArchive(): ResponseEntity<ByteArray> {
         try {
