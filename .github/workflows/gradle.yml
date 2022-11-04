@@ -41,6 +41,8 @@ jobs:
       if: (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/release-'))
       run: ./gradlew dockerPushImage
 
-    - name: Deploy to Heroku
-      if: github.ref == 'refs/heads/main'
-      run: git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/vividus-test-site.git main
+    - name: 'Deploy to render.com: https://vividus-test-site.onrender.com/'
+      if: (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/release-'))
+      env:
+        RENDER_COM_DEPLOY_HOOK_URL: ${{ secrets.RENDER_COM_DEPLOY_HOOK_URL }}
+      run: curl $RENDER_COM_DEPLOY_HOOK_URL
