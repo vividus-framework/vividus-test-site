@@ -7,7 +7,7 @@ plugins {
     id("com.diffplug.spotless") version "6.11.0"
     id("com.bmuschko.docker-spring-boot-application") version "9.0.0"
     kotlin("jvm") version "1.7.22"
-    kotlin("plugin.spring") version "1.7.21"
+    kotlin("plugin.spring") version "1.7.22"
 }
 
 group = "org.vividus"
