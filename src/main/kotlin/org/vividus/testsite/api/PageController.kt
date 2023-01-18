@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam
 
 @Controller()
 class PageController @Autowired constructor(
-    private val resourceLoader: ResourceLoader
+    private val resourceLoader: ResourceLoader,
 ) {
     @GetMapping("/delayedLoading")
     fun delayedLoading(
         model: Model,
         @RequestParam(required = false, defaultValue = "0") pageTimeout: Long,
-        @RequestParam(required = false, defaultValue = "0") imageTimeout: Long
+        @RequestParam(required = false, defaultValue = "0") imageTimeout: Long,
     ): String {
         sleepFor(pageTimeout)
         model["pageTimeout"] = pageTimeout
