@@ -18,7 +18,7 @@ class WebSocketConfiguration : WebSocketConfigurer {
                     session.sendMessage(message)
                 }
             },
-            "/echo"
+            "/echo",
         )
     }
 }
