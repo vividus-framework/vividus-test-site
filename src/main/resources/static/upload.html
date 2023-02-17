@@ -8,31 +8,33 @@
 <body>
 <form method="POST"
       name="uploadForm"
-      onSubmit='return onFormSubmit()'>
+      action="/upload"
+      enctype="multipart/form-data">
     <div>
-        <input id="uploadInput" type="file" multiple/>
-        <p id="info">Selected file:</p>
-        <p id="result"></p>
+        <input id="uploadInput" type="file" name="file"/>
+        <p id="info" />
     </div>
     <div><input type="submit" id="submit" value="Send file"/></div>
 </form>
 
 <script>
-    const uploadInput = document.getElementById("uploadInput");
-    const infoId = 'info';
-    uploadInput.addEventListener(
-        "change",
-        () => {
-            document.getElementById(infoId).textContent = uploadInput.files[0].name;
-        },
-        false
-    );
-
-    function onFormSubmit() {
-        let info = document.getElementById(infoId);
-        info.textContent = info.textContent + " has been successfully uploaded"
-        return false;
-    }
+    document.forms['uploadForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new FormData(event.target)
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        }).then((body) => {
+            let info = document.getElementById('info');
+            info.textContent = "File has been successfully uploaded. Server received: " + body + " bytes."
+        }).catch((error) => {
+            throw new Error(error)
+        });
+    });
 </script>
 </body>
 </html>
