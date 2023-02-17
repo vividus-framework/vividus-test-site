@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.multipart.MultipartFile
 
 @Controller()
 class PageController @Autowired constructor(
@@ -35,6 +37,10 @@ class PageController @Autowired constructor(
         return ResponseEntity.ok(image)
     }
 
+    @PostMapping("/upload")
+    fun uploadFile(@RequestParam("file") file: MultipartFile): ResponseEntity<Any?> {
+        return ResponseEntity.ok(file.bytes.size)
+    }
     private fun sleepFor(timeout: Long) {
         Thread.sleep(timeout)
     }
