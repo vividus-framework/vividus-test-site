@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Upload</title>
+</head>
+
+<body>
+<form method="POST"
+      name="uploadForm"
+      onSubmit='return onFormSubmit()'>
+    <div>
+        <input id="uploadInput" type="file" multiple/>
+        <p id="info">Selected file:</p>
+        <p id="result"></p>
+    </div>
+    <div><input type="submit" id="submit" value="Send file"/></div>
+</form>
+
+<script>
+    const uploadInput = document.getElementById("uploadInput");
+    const infoId = 'info';
+    uploadInput.addEventListener(
+        "change",
+        () => {
+            document.getElementById(infoId).textContent = uploadInput.files[0].name;
+        },
+        false
+    );
+
+    function onFormSubmit() {
+        let info = document.getElementById(infoId);
+        info.textContent = info.textContent + " has been successfully uploaded"
+        return false;
+    }
+</script>
+</body>
+</html>
