@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.0.4"
     id("io.spring.dependency-management") version "1.1.0"
-    id("com.diffplug.spotless") version "6.15.0"
+    id("com.diffplug.spotless") version "6.16.0"
     id("com.bmuschko.docker-spring-boot-application") version "9.2.1"
 
     val kotlinVersion = "1.8.10"
