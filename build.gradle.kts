@@ -65,7 +65,7 @@ configure<SpotlessExtension> {
 
 docker {
     springBootApplication {
-        baseImage.set("eclipse-temurin:17-jre")
+        baseImage.set("eclipse-temurin:17-jre-alpine")
         maintainer.set("VIVIDUS Team \"vividus.team@vividus.dev\"")
         images.set(setOf("vividus/vividus-test-site:${project.version}", "vividus/vividus-test-site:latest"))
     }
