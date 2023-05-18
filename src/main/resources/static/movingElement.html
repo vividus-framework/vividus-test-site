@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div.internal {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF60;
+            position: relative;
+            animation-name: example;
+            animation-duration: 5s;
+            margin: 70px;
+            border: 2px solid #4CAF50;
+        }
+        div.external {
+            max-width: 900px;
+            border: 2px solid #4CAF50;
+        }
+        @keyframes example {
+            0%   { left:0px; top:0px;}
+            50%  { left:600px; top:0px;}
+            100% { left:0px; top:0px;}
+        }
+    </style>
+</head>
+<body>
+    <h2>Element moves after page loading</h2>
+    <div class="external">
+        <div class="internal" />
+    </div>
+</body>
+</html>
