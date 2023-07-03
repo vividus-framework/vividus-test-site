@@ -41,7 +41,7 @@ jobs:
       if: (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/release-'))
       run: ./gradlew dockerPushImage
 
-    - name: 'Deploy to render.com: https://vividus-test-site.onrender.com/'
+    - name: 'Deploy to render.com: https://vividus-test-site-a92k.onrender.com/'
       if: (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/release-'))
       env:
         RENDER_COM_DEPLOY_HOOK_URL: ${{ secrets.RENDER_COM_DEPLOY_HOOK_URL }}
