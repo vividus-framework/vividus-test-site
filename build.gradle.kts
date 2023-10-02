@@ -5,7 +5,7 @@ plugins {
     id("org.springframework.boot") version "3.1.4"
     id("io.spring.dependency-management") version "1.1.3"
     id("com.diffplug.spotless") version "6.21.0"
-    id("com.bmuschko.docker-spring-boot-application") version "9.3.3"
+    id("com.bmuschko.docker-spring-boot-application") version "9.3.4"
 
     val kotlinVersion = "1.9.10"
     kotlin("jvm") version kotlinVersion
