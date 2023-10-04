@@ -22,7 +22,9 @@ import java.util.zip.ZipOutputStream
 @RestController()
 @RequestMapping("/api")
 class HttpRequestController {
-    private val CACHE_EVICTION_TIME = Duration.ofSeconds(10)
+    companion object {
+        private val CACHE_EVICTION_TIME = Duration.ofSeconds(10)
+    }
 
     val teapotInvocations: LoadingCache<UUID, Long> = buildCache { 0 }
 
