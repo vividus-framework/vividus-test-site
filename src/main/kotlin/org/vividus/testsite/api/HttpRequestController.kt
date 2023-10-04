@@ -33,7 +33,9 @@ class HttpRequestController {
     }
 
     @GetMapping("/teapot")
-    fun teapot(@RequestParam clientId: UUID): ResponseEntity<Unit> {
+    fun teapot(
+        @RequestParam clientId: UUID,
+    ): ResponseEntity<Unit> {
         val numberOfInvocations = teapotInvocations.get(clientId)
         if (numberOfInvocations!! == 0L) {
             teapotInvocations.put(clientId, numberOfInvocations.inc())

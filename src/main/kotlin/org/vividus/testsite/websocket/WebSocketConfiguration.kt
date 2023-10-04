@@ -14,7 +14,10 @@ class WebSocketConfiguration : WebSocketConfigurer {
     override fun registerWebSocketHandlers(registry: WebSocketHandlerRegistry) {
         registry.addHandler(
             object : TextWebSocketHandler() {
-                override fun handleTextMessage(session: WebSocketSession, message: TextMessage) {
+                override fun handleTextMessage(
+                    session: WebSocketSession,
+                    message: TextMessage,
+                ) {
                     session.sendMessage(message)
                 }
             },
