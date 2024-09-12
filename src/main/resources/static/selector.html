@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Selector</title>
+        <script>
+            function incrementCount() {
+                let countElement = document.getElementById('count');
+                let current = Number.parseInt(countElement.innerHTML);
+                document.getElementById('count').innerHTML = current + 1;
+            }
+        </script>
+    </head>
+    <body>
+        <hr>
+        <h3>Click count</h3>
+        <button id="fine," onclick="incrementCount()">Button 1</button>
+        <button id="# how : (are) you?" onclick="incrementCount()">Button 2</button>
+
+        <p>Count: <span id="count">0</span></p>
+        <hr>
+    </body>
+</html>
