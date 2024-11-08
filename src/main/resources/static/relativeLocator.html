@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3x3 Grid Layout</title>
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+                gap: 10px;
+            }
+            .container div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #333;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            #block1 { grid-area: 1 / 1; }
+            #block2 { grid-area: 1 / 2; }
+            #block7 { grid-area: 1 / 3; }
+            #block4 { grid-area: 2 / 1; }
+            #block5 { grid-area: 2 / 2; }
+            #block6 { grid-area: 2 / 3; }
+            #block3 { grid-area: 3 / 1; }
+            #block8 { grid-area: 3 / 2; }
+            #block9 { grid-area: 3 / 3; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="block1" class="item1">One</div>
+            <div id="block2" class="item2">Two</div>
+            <div id="block3" class="item3">Three</div>
+            <div id="block4" class="item4"><a href="links.html">Four</a></div>
+            <div id="block5" class="item5"><a href="index.html">Index</a></div>
+            <div id="block6" class="item6" style="visibility: hidden;">Six</div>
+            <div id="block7" class="item7">Seven</div>
+            <div id="block8" class="item8">Eight</div>
+            <div id="block9" class="item9"><label>Nine</label></div>
+        </div>
+    </body>
+</html>
