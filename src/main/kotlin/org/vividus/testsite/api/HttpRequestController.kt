@@ -28,9 +28,8 @@ class HttpRequestController {
 
     val teapotInvocations: LoadingCache<UUID, Long> = buildCache { 0 }
 
-    private fun buildCache(loader: (key: UUID) -> Long): LoadingCache<UUID, Long> {
-        return Caffeine.newBuilder().expireAfterWrite(CACHE_EVICTION_TIME).build(loader)
-    }
+    private fun buildCache(loader: (key: UUID) -> Long): LoadingCache<UUID, Long> =
+        Caffeine.newBuilder().expireAfterWrite(CACHE_EVICTION_TIME).build(loader)
 
     @GetMapping("/teapot")
     fun teapot(
@@ -46,17 +45,14 @@ class HttpRequestController {
     }
 
     @GetMapping("/redirect")
-    fun redirect(): ResponseEntity<Any> {
-        return ResponseEntity
+    fun redirect(): ResponseEntity<Any> =
+        ResponseEntity
             .status(HttpStatus.FOUND)
             .header("Location", "/index.html")
             .build()
-    }
 
     @GetMapping("/no-content")
-    fun noContent(): ResponseEntity<Any> {
-        return ResponseEntity.noContent().build()
-    }
+    fun noContent(): ResponseEntity<Any> = ResponseEntity.noContent().build()
 
     @GetMapping("/zip-archive")
     fun getResponseAsZipArchive(): ResponseEntity<ByteArray> {
@@ -78,7 +74,8 @@ class HttpRequestController {
                         headers["Content-Type"] = "application/zip"
                         headers["Content-Disposition"] = "attachment; filename=\"zip-archive.zip\""
 
-                        return ResponseEntity.ok()
+                        return ResponseEntity
+                            .ok()
                             .headers(headers)
                             .body(byteArrayOutputStream.toByteArray())
                     }

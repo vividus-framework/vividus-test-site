@@ -44,9 +44,7 @@ class PageController
         @PostMapping("/upload")
         fun uploadFile(
             @RequestParam("file") file: MultipartFile,
-        ): ResponseEntity<Any?> {
-            return ResponseEntity.ok(file.bytes.size)
-        }
+        ): ResponseEntity<Any?> = ResponseEntity.ok(file.bytes.size)
 
         private fun sleepFor(timeout: Long) {
             Thread.sleep(timeout)
