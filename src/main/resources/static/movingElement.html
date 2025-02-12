@@ -7,8 +7,6 @@
             height: 100px;
             background-color: #4CAF60;
             position: relative;
-            animation-name: example;
-            animation-duration: 5s;
             margin: 70px;
             border: 2px solid #4CAF50;
         }
@@ -24,9 +22,18 @@
     </style>
 </head>
 <body>
-    <h2>Element moves after page loading</h2>
+    <h2>Element moves after click on the button</h2>
+    <button id="start" onclick="startAnimation()" style="margin-bottom: 20px;">Start moving</button>
     <div class="external">
-        <div class="internal" />
+        <div class="internal" id="movingDiv"></div>
     </div>
+
+    <script>
+        function startAnimation() {
+            const movingDiv = document.getElementById("movingDiv");
+            movingDiv.style.animationName = "example";
+            movingDiv.style.animationDuration = "5s";
+        }
+    </script>
 </body>
 </html>
