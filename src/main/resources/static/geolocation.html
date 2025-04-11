@@ -6,12 +6,15 @@
 <p id="element_with_coords"></p>
 
 <script>
-navigator.geolocation.getCurrentPosition(showPosition)
+navigator.geolocation.getCurrentPosition(
+    pos => showMessage("Latitude", pos.coords.latitude, "Longitude", pos.coords.longitude),
+    err => showMessage("Error code", err.code, "Error message", err.message),
+    { timeout: 15_000 }
+)
 
-function showPosition(position) {
+function showMessage(key1, value1, key2, value2) {
     var element = document.getElementById("element_with_coords");
-    element.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
+    element.innerHTML = `${key1}: ${value1}<br>${key2}: ${value2}`;
 }
 </script>
 
