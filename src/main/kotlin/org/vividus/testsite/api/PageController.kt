@@ -40,6 +40,7 @@ class PageController
         }
 
         @PostMapping("/upload")
+        @ResponseBody
         fun uploadFile(
             @RequestParam("file") file: MultipartFile,
         ): Int = file.bytes.size
