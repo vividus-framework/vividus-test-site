@@ -26,18 +26,18 @@ class HttpRequestController {
         private val CACHE_EVICTION_TIME = Duration.ofSeconds(10)
     }
 
-    val teapotInvocations: LoadingCache<UUID, Long> = buildCache { 0 }
+    val teapotInvocations: LoadingCache<UUID, Boolean> = buildCache { false }
 
-    private fun buildCache(loader: (key: UUID) -> Long): LoadingCache<UUID, Long> =
+    private fun buildCache(loader: (key: UUID) -> Boolean): LoadingCache<UUID, Boolean> =
         Caffeine.newBuilder().expireAfterWrite(CACHE_EVICTION_TIME).build(loader)
 
     @GetMapping("/teapot")
     fun teapot(
         @RequestParam clientId: UUID,
     ): ResponseEntity<Unit> {
-        val numberOfInvocations = teapotInvocations.get(clientId)
-        if (numberOfInvocations!! == 0L) {
-            teapotInvocations.put(clientId, numberOfInvocations.inc())
+        val wasAlreadyInvoked = teapotInvocations.get(clientId)
+        if (!wasAlreadyInvoked) {
+            teapotInvocations.put(clientId, true)
             return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build()
         }
         teapotInvocations.invalidate(clientId)
